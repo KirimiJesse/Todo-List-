@@ -6,7 +6,6 @@ from django.http import HttpResponse
 
 from .models import Todo
 
-# Create your views here.
 def index(request):
     todos = Todo.objects.all()[:10]
 
@@ -29,7 +28,7 @@ def add(request):
         text = request.POST['text']
 
         todo = Todo(title=title,text=text)
-        todo.save
+        todo.save()
         return redirect('/todos')
     else:
         return render(request, 'add.html')
